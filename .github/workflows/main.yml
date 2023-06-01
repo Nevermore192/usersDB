@@ -25,7 +25,6 @@ jobs:
           pip3 install flask-sqlalchemy
       - name: Run database migrations
         run: |
-          flask db init
           flask db migrate -m "create_user_table"
           flask db upgrade
 
