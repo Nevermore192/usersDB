@@ -23,11 +23,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip3 install flask-sqlalchemy
-
       - name: Run database migrations
         run: |
+          flask db init
           flask db migrate -m "create_user_table"
-          
-      - name: Build and deploy
-        run: |
-          python app.py 
+          flask db upgrade
+
+      - name: Start Gunicorn server
+        run: gunicorn app:app
