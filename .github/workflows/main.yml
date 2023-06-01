@@ -27,7 +27,6 @@ jobs:
       - name: Run database migrations
         run: |
           flask db migrate -m "create_user_table"
-          flask db upgrade 
           
       - name: Build and deploy
         run: |
